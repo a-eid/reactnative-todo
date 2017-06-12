@@ -59,7 +59,7 @@ class App extends Component {
     })
     this.setState({
       todos,
-      dataSource: this.state.dataSource.cloneWithRows(filterTodos(this.state.filter, this.state.todos))
+      dataSource: this.state.dataSource.cloneWithRows(filterTodos(this.state.filter, todos))
     })
   }
 
