@@ -16,6 +16,7 @@
 
 there is no `event.target.value` there is `event.nativeEvent.text` 
 you could also use `onChangeText{text => this.setState({value: texT})}` 
+remove bottomBorder from TextInput on android `underlineColorAndroid='rgba(0,0,0,0)'` 
 
 
 ## ListView 

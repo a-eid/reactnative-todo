@@ -11,13 +11,15 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     flex: 1,
-    padding:10,
-    borderRadius: 5 , 
+    paddingVertical: 10,
+    borderRadius: 5,
     borderWidth: 1,
-    borderColor: "transparent"
+    borderColor: "transparent",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   text: {
-    // fontSize: 18
+    textAlign: 'center'
   },
   active: {
     borderColor: "rgba(175 ,47 ,47 , .2)"
@@ -25,10 +27,10 @@ const styles = StyleSheet.create({
 })
 
 const { container, wrapper, text, active } = styles
-const Footer = ({count, filter , filterChange }) => (
+const Footer = ({ count, filter, filterChange , clearCompleted }) => (
   <View style={container} >
     <View style={wrapper} >
-      <Text >count {count || 0}</Text>
+      <Text style={text}>count {count || 0}</Text>
     </View>
     <TouchableOpacity onPress={() => filterChange("All")} style={[wrapper, filter == "All" && active]}>
       <Text style={text} >All</Text>
@@ -38,6 +40,9 @@ const Footer = ({count, filter , filterChange }) => (
     </TouchableOpacity>
     <TouchableOpacity onPress={() => filterChange("Completed")} style={[wrapper, filter == "Completed" && active]}>
       <Text style={text}>Completed</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={wrapper} onPress={clearCompleted}>
+      <Text style={text}>clear completed</Text>
     </TouchableOpacity>
   </View>
 )

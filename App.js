@@ -77,6 +77,13 @@ class App extends Component {
       dataSource: this.state.dataSource.cloneWithRows(filterTodos(filter, this.state.todos))
     })
   }
+  clearCompleted = () => {
+    const todos = this.state.todos.filter( todo => !todo.complete)
+    this.setState({
+      todos,
+      dataSource: this.state.dataSource.cloneWithRows(filterTodos(this.state.filter, todos))
+    })
+  }
 
   render = () => (
     <View style={styles.container} >
@@ -93,7 +100,8 @@ class App extends Component {
         dataSource={this.state.dataSource}
         todos={this.state.todos} />
       <Footer count={filterTodos(this.state.filter , this.state.todos).length} 
-        filter={this.state.filter} filterChange={this.handleFilterChange} />
+        filter={this.state.filter} filterChange={this.handleFilterChange}
+        clearCompleted={this.clearCompleted} />
     </View>
   )
 }
